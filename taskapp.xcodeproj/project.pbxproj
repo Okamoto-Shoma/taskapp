@@ -14,6 +14,7 @@
 		C1CD17222447E6570089F294 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1CD17212447E6570089F294 /* Assets.xcassets */; };
 		C1CD17252447E6570089F294 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1CD17232447E6570089F294 /* LaunchScreen.storyboard */; };
 		C1CD172D2447FED00089F294 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CD172C2447FED00089F294 /* InputViewController.swift */; };
+		C1CD172F244804B60089F294 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CD172E244804B60089F294 /* Task.swift */; };
 		E727DB823E739C68988B2FCC /* Pods_taskapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB55284CF0E3A3EE7CE05C32 /* Pods_taskapp.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		C1CD17242447E6570089F294 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1CD17262447E6570089F294 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1CD172C2447FED00089F294 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		C1CD172E244804B60089F294 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		EB55284CF0E3A3EE7CE05C32 /* Pods_taskapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taskapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -86,6 +88,7 @@
 				C1CD171A2447E6560089F294 /* SceneDelegate.swift */,
 				C1CD171C2447E6560089F294 /* ViewController.swift */,
 				C1CD172C2447FED00089F294 /* InputViewController.swift */,
+				C1CD172E244804B60089F294 /* Task.swift */,
 				C1CD171E2447E6560089F294 /* Main.storyboard */,
 				C1CD17212447E6570089F294 /* Assets.xcassets */,
 				C1CD17232447E6570089F294 /* LaunchScreen.storyboard */,
@@ -211,6 +214,7 @@
 			files = (
 				C1CD171D2447E6560089F294 /* ViewController.swift in Sources */,
 				C1CD17192447E6560089F294 /* AppDelegate.swift in Sources */,
+				C1CD172F244804B60089F294 /* Task.swift in Sources */,
 				C1CD171B2447E6560089F294 /* SceneDelegate.swift in Sources */,
 				C1CD172D2447FED00089F294 /* InputViewController.swift in Sources */,
 			);
