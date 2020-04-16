@@ -12,12 +12,13 @@ import UserNotifications
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var categoryText: UITextField!
     
     //Realmインスタンスを取得
     let realm = try! Realm()
     
     //DB内のタスクが格納されるリスト。
-    //2付の近い順でソート:昇順
+    //日付の近い順でソート:昇順
     //以降内容をアップデートするとリスト内は自動的に更新される。
     var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
     

@@ -6,9 +6,11 @@ class InputViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentsTextView: UITextView!
     @IBOutlet weak var datePicker: UIDatePicker!
-
+    @IBOutlet weak var categoryView: UITextField!
+    
     let realm = try! Realm()
     var task: Task!
+    var category: Category!
     
 
     override func viewDidLoad() {
@@ -20,6 +22,7 @@ class InputViewController: UIViewController {
         titleTextField.text = task.title
         contentsTextView.text = task.contents
         datePicker.date = task.date
+        categoryView.text = task.category
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -28,6 +31,7 @@ class InputViewController: UIViewController {
             self.task.contents = self.contentsTextView.text
             self.task.date = self.datePicker.date
             self.realm.add(self.task, update: .modified)
+            self.task.category = self.categoryView.text!
         }
         setNotification(task: task)
         super.viewWillDisappear(animated)
