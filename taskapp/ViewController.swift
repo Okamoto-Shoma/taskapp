@@ -18,10 +18,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //Realmインスタンスを取得
     let realm = try! Realm()
     
+    
     //DB内のタスクが格納されるリスト。
     //日付の近い順でソート:昇順
     //以降内容をアップデートするとリスト内は自動的に更新される。
     var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
+    
+    
+    
+    //カテゴリー検索された際に昇順ソート
+    //var categoryArray = try! Realm().objects(Task.self).sorted(byKeyPath: "category", ascending: true)
+    
+
+//MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +38,39 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
     }
+    //segueで画面遷移する時
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let inputViewController: InputViewController = segue.destination as! InputViewController
+        
+        if segue.identifier == "cellSegue" {
+            let indexPath = self.tableView.indexPathForSelectedRow
+            inputViewController.task = taskArray[indexPath!.row]
+        } else {
+            let task = Task()
+            let allTasks = realm.objects(Task.self)
+            if allTasks.count != 0 {
+                task.id = allTasks.max(ofProperty: "id")! + 1
+            }
+            inputViewController.task = task
+        }
+    }
+    
+//MARK: -Action
+    @IBAction func searchbutton(_ sender: UIButton) {
+        guard let inputCategoryField = category.text, !inputCategoryField.isEmpty else {
+            self.taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
+            tableView.reloadData()
+            return
+        }
+        let predicate = NSPredicate(format: "category = %@", inputCategoryField)
+        self.taskArray = realm.objects(Task.self).filter(predicate).sorted(byKeyPath: "category", ascending: true)
+        print(taskArray)
+        
+        tableView.reloadData()
+    }
+    
+ 
+//MARK: - メソッド
     
     //データの数を返すメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,30 +122,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //未通知のローカル通知一覧をログ出力
             center.getPendingNotificationRequests { (requests: [UNNotificationRequest]) in
                 for request in requests {
-                    print("/---------------")
+                    print("/-------------------------------------------------------------")
                     print(request)
-                    print("---------------/")
+                    print("-------------------------------------------------------------/")
                 }
             }
         }
     }
     
-    //segueで画面遷移する時
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let inputViewControleer: InputViewController = segue.destination as! InputViewController
-        
-        if segue.identifier == "cellSegue" {
-            let indexPath = self.tableView.indexPathForSelectedRow
-            inputViewControleer.task = taskArray[indexPath!.row]
-        } else {
-            let task = Task()
-            let allTasks = realm.objects(Task.self)
-            if allTasks.count != 0 {
-                task.id = allTasks.max(ofProperty: "id")! + 1
-            }
-            inputViewControleer.task = task
-        }
-    }
+
     
     //入力画面から戻ってきた時にTableViewを更新させる
     override func viewWillAppear(_ animated: Bool) {

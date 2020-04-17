@@ -10,7 +10,7 @@ class InputViewController: UIViewController {
     
     let realm = try! Realm()
     var task: Task!
-    var category: Category!
+    var category: Task!
     
 
     override func viewDidLoad() {
