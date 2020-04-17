@@ -15,6 +15,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="カテゴリー検索" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NAB-4o-8Kh">
+                                <rect key="frame" x="10" y="98" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="po0-NN-i2s">
                                 <rect key="frame" x="0.0" y="142" width="414" height="754"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -45,21 +50,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="カテゴリー検索" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NAB-4o-8Kh">
-                                <rect key="frame" x="10" y="98" width="394" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="NAB-4o-8Kh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="1ta-hg-C4n"/>
-                            <constraint firstItem="po0-NN-i2s" firstAttribute="top" secondItem="NAB-4o-8Kh" secondAttribute="bottom" constant="10" id="2ub-qm-bGC"/>
-                            <constraint firstAttribute="bottom" secondItem="po0-NN-i2s" secondAttribute="bottom" id="cIk-XI-P2H"/>
+                            <constraint firstItem="po0-NN-i2s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SY6-j4-n1D"/>
+                            <constraint firstAttribute="bottom" secondItem="po0-NN-i2s" secondAttribute="bottom" id="T7W-dI-oCJ"/>
+                            <constraint firstItem="po0-NN-i2s" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="TDD-r3-Viy"/>
                             <constraint firstItem="NAB-4o-8Kh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="cRj-oL-2GS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NAB-4o-8Kh" secondAttribute="trailing" constant="10" id="glJ-Es-zCX"/>
-                            <constraint firstItem="po0-NN-i2s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="n2j-Mb-gNd"/>
-                            <constraint firstItem="po0-NN-i2s" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="v9L-9F-Pvf"/>
+                            <constraint firstItem="po0-NN-i2s" firstAttribute="top" secondItem="NAB-4o-8Kh" secondAttribute="bottom" constant="10" id="jml-TG-WON"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -73,8 +73,8 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="categoryText" destination="NAB-4o-8Kh" id="ohO-qa-NDR"/>
-                        <outlet property="tableView" destination="po0-NN-i2s" id="BfA-qa-Rzf"/>
+                        <outlet property="category" destination="NAB-4o-8Kh" id="fom-Yl-Xbb"/>
+                        <outlet property="tableView" destination="po0-NN-i2s" id="S9b-Wa-dDg"/>
                         <segue destination="nQy-uc-lFS" kind="show" identifier="cellSegue" id="PaR-9Y-eoZ"/>
                     </connections>
                 </viewController>

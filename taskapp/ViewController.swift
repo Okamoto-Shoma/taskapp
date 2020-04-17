@@ -11,8 +11,9 @@ import RealmSwift
 import UserNotifications
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var categoryText: UITextField!
+    @IBOutlet weak var category: UITextField!
     
     //Realmインスタンスを取得
     let realm = try! Realm()
