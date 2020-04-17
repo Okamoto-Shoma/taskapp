@@ -64,7 +64,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         let predicate = NSPredicate(format: "category = %@", inputCategoryField)
         self.taskArray = realm.objects(Task.self).filter(predicate).sorted(byKeyPath: "category", ascending: true)
-        print(taskArray)
+        //print(taskArray)
         
         tableView.reloadData()
     }
